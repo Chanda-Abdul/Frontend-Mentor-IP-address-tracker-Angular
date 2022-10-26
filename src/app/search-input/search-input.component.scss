@@ -1,0 +1,14 @@
+@use '/src/variables';
+
+.address {
+  height: 58px;
+  width: 327px;
+  border-radius: 15px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0px;
+  text-align: left;
+  background-color: variables.$milk ;
+  color: variables.$shark-fin;
+  padding-left: 10px;
+}

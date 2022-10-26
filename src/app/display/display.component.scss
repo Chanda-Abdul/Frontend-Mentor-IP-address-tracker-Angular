@@ -1,0 +1,24 @@
+@use '/src/variables';
+
+.container {
+  height: 294px;
+  width: 327px;
+  left: 24px;
+  top: 167px;
+  border-radius: 15px;
+  background-color: variables.$milk;
+}
+
+h2 {
+  height: 12px;
+  width: 279px;
+
+
+}
+
+p {
+  height: 24px;
+  width: 279px;
+
+
+}

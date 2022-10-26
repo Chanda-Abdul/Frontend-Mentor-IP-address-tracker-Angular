@@ -1,1 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
+@use './variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: variables.$global-font;
+  font-size: 18px;
+  height: 100vh;
+}
+
+.container{
+  @include variables.flex-column;
+}
+
+h1{
+  color: variables.$milk;
+font-size: 26px;
+font-weight: 500;
+line-height: 30px;
+letter-spacing: -0.2;
+text-align: left;
+}
+h2{
+  color: variables.$shark-fin;
+font-size: 10px;
+font-weight: 700;
+line-height: 12px;
+letter-spacing: 1.4px;
+text-align: center;
+}
+
+p{
+  color: variables.$shoe-wax;
+font-size: 20px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: -0.17px;
+text-align: center;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: variables.$dazzling-blue;
+}

@@ -27,7 +27,7 @@ Your challenge is to build out this IP Address Tracker app and get it looking as
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
-Your users should be able to:
+---
 Users should be able to:
 
 - [ ] View the optimal layout for each page depending on their device's screen size
@@ -39,7 +39,10 @@ Users should be able to:
 
 ---
 
-⚠️ **IMPORTANT** ⚠️: To use the IP Geolocation API by IPify, you'll need to sign up for a free account. You won't need to add any cards details to do this and it's a very quick process. This will generate an API Key for you. Usually, you would be able to restrict your API Key to a specific URL (your own domain). This makes sure that other people can't use your API Key on their own websites. IPify doesn't have this feature, but because you aren't adding your card details, this isn't an issue. **So be sure to only sign up for the free account and DO NOT enter any card details**.
+⚠️ **IMPORTANT** ⚠️: 
+- To use the IP Geolocation API by IPify, you'll need to sign up for a free account. 
+- You won't need to add any cards details to do this and it's a very quick process. This will generate an API Key for you. 
+- Usually, you would be able to restrict your API Key to a specific URL (your own domain). This makes sure that other people can't use your API Key on their own websites. IPify doesn't have this feature, but because you aren't adding your card details, this isn't an issue. **So be sure to only sign up for the free account and DO NOT enter any card details**.
 
 For the mapping API, we recommend using [LeafletJS](https://leafletjs.com/). It's free to use and doesn't require an API Key. If you decide to use another API, like Google Maps or Mapbox, be sure to secure your API Key. Here are guides for both Google Maps and Mapbox, be sure to read through them thoroughly:
 
@@ -56,13 +59,7 @@ Exposing your API Key publicly can lead to other people using it to make request
 
 ![](./screenshot.jpg)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
@@ -72,17 +69,21 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ## My process
 
 ### Built with
+#### APIs
 
+- the <b>[IP Geolocation API by IPify](https://geo.ipify.org/docs)</b>
+-  <b>[LeafletJS](https://leafletjs.com/)</b>, for the mapping API.
+- <b>[Insomnia]()</b>
+
+#### Frameworks and Librarys
 - <b>[Angular](https://angular.io/)</b> (<b>JavaScript</b> framework)
-  - [<b>RxJs</b>(Reactive Extensions for JavaScript)](https://rxjs.dev/guide/overview) -  a library for composing async and event-based programs by using observable sequences(think of <b>RxJS</b> as <b>[Lodash](https://lodash.com/)</b> for events.) 
-   - [Angular Material](https://material.angular.io/)
+
   - [TypeScript](https://www.typescriptlang.org/)
   - [JavaScript](https://www.javascript.com/)
 - <b>[Figma](https://www.figma.com/)</b> collaborative web application for interface design.
 - <b>[Sass](https://sass-lang.com/)/CSS</b> custom properties
   - Mobile-first workflow
   - Flexbox
-  - CSS Grid
 - Semantic HTML5 markup
 
 ### What I learned
@@ -115,11 +116,11 @@ const proudOfThisFunc = () => {
 
 ## Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [https://github.com/BlueHalo/ngx-leaflet/wiki](https://github.com/BlueHalo/ngx-leaflet/wiki) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [https://github.com/BlueHalo/ngx-leaflet/wiki/Getting-Started-Tutorial](https://github.com/BlueHalo/ngx-leaflet/wiki/Getting-Started-Tutorial) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [https://github.com/bluehalo/ngx-leaflet](https://github.com/bluehalo/ngx-leaflet) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [https://medium.com/runic-software/the-simple-guide-to-angular-leaflet-maps-41de83db45f1](https://medium.com/runic-software/the-simple-guide-to-angular-leaflet-maps-41de83db45f1) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [https://www.geoapify.com/angular-leaflet-step-by-step-tutorial-to-add-a-map](https://www.geoapify.com/angular-leaflet-step-by-step-tutorial-to-add-a-map) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 ## Author
 

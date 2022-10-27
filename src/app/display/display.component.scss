@@ -1,24 +1,38 @@
 @use '/src/variables';
 
 .container {
+  position: absolute;
   height: 294px;
   width: 327px;
   left: 24px;
   top: 167px;
   border-radius: 15px;
   background-color: variables.$milk;
-}
-
-h2 {
-  height: 12px;
-  width: 279px;
-
+  padding:25px 5px ;
+  box-shadow: 0px 50px 50px -25px variables.$shoe-wax;
 
 }
-
-p {
-  height: 24px;
-  width: 279px;
-
-
+ul{
+  @include variables.flex-column;
+  height: 294px;
+  list-style: none;
+  
 }
+
+h2{
+  margin-bottom: 10px;
+}
+
+.seperator{
+  visibility: none;
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 768px) {
+  .seperator{
+    visibility: visible;
+    border: 1px solid variables.$shark-fin;
+  }
+}
+
+@media screen and (min-width: 1440px) {}

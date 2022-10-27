@@ -40,7 +40,24 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/src/assets/ip-address-tracker.fig
 
 # System Files
 .DS_Store
 Thumbs.db
+
+# Avoid accidental XD or Figma upload if you convert the design file
+#######################################################
+## Please do not remove lines below - thanks! 🙂 ##
+#######################################################
+*.xd
+*.fig
+
+# Avoid your project being littered with annoying .DS_Store files!
+.DS_Store
+
+
+# Environment Variables
+.env
+src/environments
+src/assets/scripts

@@ -1,14 +1,35 @@
 <div class="container">
-  <h2>IP Address</h2>
-  <p>192.212.174.101</p>
+  <ul>
+    <li>
+      <h2>IP Address</h2>
+      <p>192.212.174.101</p>
+    </li>
+    <div class="seperator"></div>
+    <li>
+      <h2>Location</h2>
+      <p>Brooklyn, NY 10001</p>
+    </li>
+   <div class="seperator"></div>
+    <li>
+      <h2>Timezone</h2>
+      <p>UTC -05:00</p>
+    </li>
+    <div class="seperator"></div>
+    <li>
+      <!-- add offset value dynamically using the API -->
+      <h2> ISP</h2>
+      <p>SpaceX StarLink</p>
+    </li>
+  </ul>
 
-  <h2>Location</h2>
-  <p>Brooklyn, NY 10001</p>
 
-  <h2>Timezone</h2>
-  <p>UTC -05:00</p>
-  <!-- add offset value dynamically using the API -->
-  <h2> ISP</h2>
-  <p>SpaceX StarLink</p>
- </div> <app-map></app-map>
 
+
+
+
+</div>
+<app-osm-map
+ [options]="options"
+ (map$)="receiveMap($event)"
+ (zoom$)="receiveZoom($event)"
+></app-osm-map>

@@ -1,11 +1,13 @@
 @use '/src/variables';
 
 .search {
+  position: relative;
   width: 100%;
   height: 300px;
   background: variables.$gradient;
   background-image: url('/assets/images/pattern-bg.png');
-  background-size: cover;
+  background-size: stretch;
   @include variables.flex-column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 25px;
 }

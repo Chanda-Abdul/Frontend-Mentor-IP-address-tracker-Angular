@@ -31,7 +31,7 @@ You can use any tools you like to help you complete the challenge. So if you've 
 Users should be able to:
 
 - [ ] View the optimal layout for each page depending on their device's screen size
-  - [ ] Mobile: 375px
+  - [x] Mobile: 375px
   - [ ] Desktop: 1440px
 - [ ] See hover states for all interactive elements on the page
 - [ ] See their own IP address on the map on the initial page load
@@ -67,6 +67,8 @@ Exposing your API Key publicly can lead to other people using it to make request
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
+- design
+- Geolocation API 
 
 ### Built with
 #### APIs
@@ -116,12 +118,13 @@ const proudOfThisFunc = () => {
 
 ## Useful resources
 
+- [Example resource 2](https://angular.io/guide/http) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 - [https://github.com/BlueHalo/ngx-leaflet/wiki](https://github.com/BlueHalo/ngx-leaflet/wiki) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [https://github.com/BlueHalo/ngx-leaflet/wiki/Getting-Started-Tutorial](https://github.com/BlueHalo/ngx-leaflet/wiki/Getting-Started-Tutorial) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 - [https://github.com/bluehalo/ngx-leaflet](https://github.com/bluehalo/ngx-leaflet) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [https://medium.com/runic-software/the-simple-guide-to-angular-leaflet-maps-41de83db45f1](https://medium.com/runic-software/the-simple-guide-to-angular-leaflet-maps-41de83db45f1) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 - [https://www.geoapify.com/angular-leaflet-step-by-step-tutorial-to-add-a-map](https://www.geoapify.com/angular-leaflet-step-by-step-tutorial-to-add-a-map) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+
 ## Author
 
 - Frontend Mentor - [@Chanda-Abdul](https://www.frontendmentor.io/profile/Chanda-Abdul)

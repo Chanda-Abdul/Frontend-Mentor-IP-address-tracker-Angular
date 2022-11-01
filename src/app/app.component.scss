@@ -1,5 +1,10 @@
 @use '/src/variables';
 
+.container{
+  @include variables.flex-column;
+  justify-items: center;
+}
+
 .search {
   position: relative;
   width: 100%;

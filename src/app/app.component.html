@@ -4,7 +4,10 @@
     <app-search-input></app-search-input>
   </div>
 
-  <app-display></app-display>
+  <app-display [ipAddress]="currentIpAddress"
+               [location]="currentLocation"
+               [timezone]="currentTimezone"
+               [intServiceProvider]="currentIntServiceProvider"></app-display>
 
 
   <div class="attribution">

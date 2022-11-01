@@ -2,23 +2,24 @@
   <ul>
     <li>
       <h2>IP Address</h2>
-      <p>192.212.174.101</p>
+      <p>{{ipAddress}}</p>
     </li>
     <div class="seperator"></div>
     <li>
       <h2>Location</h2>
-      <p>Brooklyn, NY 10001</p>
-    </li>
-   <div class="seperator"></div>
-    <li>
-      <h2>Timezone</h2>
-      <p>UTC -05:00</p>
+      <p>{{location.city}}, {{location.region.slice(0,2) | uppercase }} {{location.postalCode}}</p>
     </li>
     <div class="seperator"></div>
     <li>
+      <h2>Timezone</h2>
       <!-- add offset value dynamically using the API -->
+      <p>UTC {{timezone}}</p>
+    </li>
+    <div class="seperator"></div>
+    <li>
+
       <h2> ISP</h2>
-      <p>SpaceX StarLink</p>
+      <p>{{intServiceProvider}}</p>
     </li>
   </ul>
 
@@ -28,8 +29,9 @@
 
 
 </div>
-<app-osm-map
- [options]="options"
- (map$)="receiveMap($event)"
- (zoom$)="receiveZoom($event)"
-></app-osm-map>
+<!-- <app-osm-map
+
+
+></app-osm-map> -->
+<!--  [options]="options"(map$)="receiveMap($event)"
+ (zoom$)="receiveZoom($event)" -->

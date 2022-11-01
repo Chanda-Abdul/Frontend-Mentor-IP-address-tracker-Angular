@@ -1,4 +1,4 @@
-import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams, HttpResponse } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Subject, Observable, throwError } from 'rxjs';
 import { catchError, map, retry } from 'rxjs/operators';
@@ -13,70 +13,15 @@ export class FetchGeolocationService {
   geoApiKey = 'at_Ff1Zn6oV6t7Jyv01ijlrDPUa6uaUs';
   leafletURL = 'https://geo.ipify.org/api/v2/country,city';
   leafletApiKey = 'at_Ff1Zn6oV6t7Jyv01ijlrDPUa6uaUs';
+
   constructor(private http: HttpClient) { }
 
   fetchGeoLocation() {
-
-    /* Query Params => add multiple new params */
-
-    // let searchParams = new HttpParams();
-    // searchParams = searchParams.append('print', 'pretty');
-    // searchParams = searchParams.append('custom', 'key');
-
-    /* */
-
-   this.http
-      .get(`${this.geoURL}?apiKey=${this.geoApiKey}`)
-        .pipe(   
-           map(responseData => {
-          // const postsArray: Geolocation = [];
-          // for (const key in responseData) {
-          //   // if (responseData.hasOwnProperty(key)) {
-          //     postsArray.push(responseData);
-          //   // }
-          // }
-          console.log(responseData)
-          return responseData;
-        }), catchError(errResponse => {
-          //send to an analytics server?
-          return throwError(errResponse);
-        })).subscribe();
-    //         /* transform response {} into usable data before .subscribe() */
-    //         map((responseData: {}) => {
-    // return responseData;
-    //         })
-
-    //       ).subscribe(responseData => {
-    //         // const data = { ...responseData }
-    //         //
-    //         console.log(responseData);
-    //         // const locate: Geolocation = {
-    //         //   ipAddress: '',
-    //         //   location: '',
-    //         //   timezone: '',
-    //         //   isp: '',
-    //         //   longitude: '',
-    //         //   latitude: '',
-
-    //         // }
-    //         // console.log(locate, responseData)
-    //       }, catchError(errResponse => {
-    //         return throwError(errResponse)
-    //       }))
-    // .pipe(
-    //   map(responseData => {
-    //     const postsArray: Post[] = [];
-    //     for (const key in responseData) {
-    //       if (responseData.hasOwnProperty(key)) {
-    //         postsArray.push({ ...responseData[key], id: key });
-    //       }
-    //     }
-    //     return postsArray;
-    //   }), catchError(errResponse => {
-    //     //send to an analytics server?
-    //     return throwError(errResponse);
-    //   })
-    // )
+    return this.http
+      .get<HttpResponse<Geolocation>>(`${this.geoURL}?apiKey=${this.geoApiKey}`, { observe: 'response' })
+      .pipe(
+        catchError(this.handleError)
+      )
   }
   fetchMapping() {
     const leafletURL = 'https://geo.ipify.org/api/v2/country,city';
@@ -100,5 +45,18 @@ export class FetchGeolocationService {
     //     return throwError(errResponse)
     //   }))
 
+  }
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 }

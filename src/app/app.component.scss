@@ -6,13 +6,21 @@
 }
 
 .search {
-  position: relative;
   width: 100%;
   height: 300px;
   background: variables.$gradient;
   background-image: url('/assets/images/pattern-bg.png');
-  background-size: stretch;
+  background-size:cover;
+  background-position: top center;
   @include variables.flex-column;
   justify-content: flex-start;
   padding-top: 25px;
+}
+
+
+@media screen and (min-width: 1440px) {
+
+.search {
+  height: 280px;
+}
 }

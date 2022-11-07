@@ -1,38 +1,138 @@
 @use '/src/variables';
 
+:host {
+  width: 100%;
+  min-height: 328px;
+  @include variables.flex-column;
+}
+
+#loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid variables.$soft-blue;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .container {
   position: absolute;
-  height: 294px;
+  min-height: 294px;
   width: 327px;
-  left: 24px;
   top: 167px;
   border-radius: 15px;
   background-color: variables.$milk;
-  padding:25px 5px ;
+  padding: 25px 5px;
   box-shadow: 0px 50px 50px -25px variables.$shoe-wax;
-
 }
-ul{
+
+ul {
   @include variables.flex-column;
   height: 294px;
   list-style: none;
-  
+  margin: 1em auto;
+  padding: .25em;
 }
 
-h2{
+
+h2 {
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 
-.seperator{
-  visibility: none;
+hr,
+.separator,
+.separator-desktop {
+  display: none;
+}
+
+.pin {
+  position: relative;
+  z-index: 2;
+  right: 0;
+  top: 50vh;
 }
 
 /* Responsive Styles */
 @media screen and (min-width: 768px) {
-  .seperator{
-    visibility: visible;
+
+  .separator {
+    display: inherit;
     border: 1px solid variables.$shark-fin;
+    background-color: variables.$shark-fin;
+    height: 60px;
+  }
+
+  hr {
+    display: inherit;
+    width: 100px;
+    margin: 0 75px;
+    background-color: variables.$shark-fin;
+  }
+
+  .container {
+    @include variables.flex-row;
+    width: 555px;
+    // padding:.5em auto;
+    height: fit-content;
+  }
+
+  ul {
+    @include variables.flex-row;
+    flex-wrap: wrap;
+    height: fit-content;
+  }
+
+  li {
+    @include variables.flex-column;
+    width: 40%;
+    margin: 1em;
+    padding: 1em .5em;
   }
 }
 
-@media screen and (min-width: 1440px) {}
+@media screen and (min-width: 1440px) {
+  hr {
+    display: none;
+  }
+
+  .separator-desktop,
+  .separator {
+    visibility: visible;
+    border: .5px solid variables.$shark-fin;
+    background-color: variables.$shark-fin;
+    height: 75px;
+  }
+
+  .container {
+    width: 1110px;
+    // padding:.5em auto;
+    height: 161px;
+    top: 200px;
+  }
+
+  ul {
+    @include variables.flex-row;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}

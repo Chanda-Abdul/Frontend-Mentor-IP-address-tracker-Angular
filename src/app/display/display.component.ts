@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OsmMapComponent } from '../map/map.component';
+import { map, Observable, tap } from 'rxjs';
+import { FetchGeolocationService } from '../fetch-geolocation.service';
+import { MapComponent } from '../map/map.component';
 
 
 @Component({
@@ -9,14 +11,25 @@ import { OsmMapComponent } from '../map/map.component';
 
 })
 export class DisplayComponent implements OnInit {
-  @Input() ipAddress: string = '192.212.174.101';
-  @Input() location: any = 'Brooklyn, NY 10001';
-  @Input() timezone: string = 'UTC -05:00';
-  @Input() intServiceProvider: string = 'SpaceX StarLink';
 
-  constructor() { }
+  loading = true;
+
+  geolocation$ = this.fetchGeolocationService.geolocation$
+
+  constructor(private fetchGeolocationService: FetchGeolocationService) { }
 
   ngOnInit(): void {
+    this.loading = false
   }
 
+
+  formatTimezone(num) {
+    if (num.toString()[0] === '-' && num.toString().length === 2) {
+      return `-0${Math.abs(num)}`
+    }
+    if (num.toString().length === 1) {
+      return `0${num}`
+    }
+    return num.toString()
+  }
 }

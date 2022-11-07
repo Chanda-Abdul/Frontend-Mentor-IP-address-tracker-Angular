@@ -1,62 +1,130 @@
-import { HttpClient, HttpErrorResponse, HttpEventType, HttpHeaders, HttpParams, HttpResponse } from "@angular/common/http";
-import { Injectable } from '@angular/core';
-import { Subject, Observable, throwError } from 'rxjs';
-import { catchError, map, retry } from 'rxjs/operators';
-import { Geolocation } from "./fetch-geolocation.model";
+import { HttpClient, HttpErrorResponse, HttpParams } from "@angular/common/http";
+import { Injectable, ViewChild } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Geolocation } from "./geolocation.model";
+import { environment } from "src/environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class FetchGeolocationService {
-  error = new Subject<''>();
-  geoURL = 'https://geo.ipify.org/api/v2/country,city';
-  geoApiKey = 'at_Ff1Zn6oV6t7Jyv01ijlrDPUa6uaUs';
-  leafletURL = 'https://geo.ipify.org/api/v2/country,city';
-  leafletApiKey = 'at_Ff1Zn6oV6t7Jyv01ijlrDPUa6uaUs';
+
+  geoURL = 'https://ipgeolocation.abstractapi.com/v1/';
+
+
+
+  ipAddress;
+  @ViewChild('map', { static: true }) mapElement: any;
+  map: google.maps.Map;
+
+  longitude$: number;
+  latitude$: number;
+  geolocation$ = this.fetchGeolocation();
 
   constructor(private http: HttpClient) { }
 
-  fetchGeoLocation() {
-    return this.http
-      .get<HttpResponse<Geolocation>>(`${this.geoURL}?apiKey=${this.geoApiKey}`, { observe: 'response' })
+
+  setIpAddress(ipAddressOrDomain) {
+    this.ipAddress = ipAddressOrDomain;
+    this.fetchGeolocation();
+    console.log(this.ipAddress, this.geolocation$)
+  }
+  fetchGeolocation():Observable<Geolocation> {
+    return this.http.get<Geolocation>(
+      `${this.geoURL}?api_key=${environment.IP_GEOLOCATION_API_KEY}`
+      + (this.ipAddress ? `&ip_address=${this.ipAddress}` : ""),
+      {
+        params: {
+          fields: 'ip_address,city,country,continent,region_iso_code,postal_code,longitude,latitude,timezone,connection'
+        }
+      })
       .pipe(
+        tap(data => {
+          console.log('Geolocation: ', data, data.latitude, this.longitude$, this.latitude$)
+
+          this.longitude$ = data.longitude,
+            this.latitude$ = data.latitude,
+            // this.setMap(this.longitude$, this.latitude$)
+            console.log(this.longitude$, this.latitude$)
+          // this.getCurrentLocation()
+        }), map(data => data),
         catchError(this.handleError)
-      )
+      );
   }
-  fetchMapping() {
-    const leafletURL = 'https://geo.ipify.org/api/v2/country,city';
-    const apiKey = 'at_Ff1Zn6oV6t7Jyv01ijlrDPUa6uaUs';
 
-    // return this.http
-    //   .get(`${leafletURL}?apiKey=${apiKey}`).pipe().subscribe(responseData => {
-    //     const data = { ...responseData }
-    //     // const {responseData.ip, location} = responseData; ip
-    //     const locate: Geolocation = {
-    //       ipAddress: '',
-    //       location: '',
-    //       timezone: '',
-    //       isp: '',
-    //       longitude: '',
-    //       latitude: '',
+  // setMap(latitude, longitude){
+  //   const mapProperties = {
+  //       center: new google.maps.LatLng(latitude, longitude),
+  //       zoom: 14,
+  //       mapTypeId: google.maps.MapTypeId.ROADMAP
+  //     };
+  //     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+  //     return this.map;
+  // }
 
-    //     }
-    //     console.log(locate, responseData)
-    //   }, catchError(errResponse => {
-    //     return throwError(errResponse)
-    //   }))
+  // getLong() {
+  //   const cords = { long: this.longitude$, lat: this.latitude$ }
+  //   console.log(this.longitude$)
+  //   return this.longitude$
+  // }
 
-  }
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
+  // fetchGeoLocation(ipAddress?): Observable<Geolocation> {
+  //   return this.http
+  //     .get<Geolocation>((`${this.geoURL}?api_key=${environment.IP_GEOLOCATION_API_KEY}&fields=ip_address,city,country,continent,region_iso_code,postal_code,longitude,latitude,timezone,connection`)
+  //       + (ipAddress ? `&ip_address=${ipAddress}` : ''))
+  //     .pipe(
+  //       tap(res => {
+  //         //   this.longitude = res.longitude;
+  //         //   this.latitude = res.latitude;
+  //         // // this.fetchMapping(this.longitude, this.latitude, res.longitude, res.latitude);
+  //         console.log(res)
+  //       }),
+  //       catchError(this.handleError)
+  //     )
+  // }
+
+  // fetchMapping(longitude, latitude): Observable<any> {
+  //   return this.http
+  //     .get<any>
+  //     ((`${this.mappingURL}?key=${environment.GOOGLE_MAPS_API_KEY}
+  //     &center=${longitude},${latitude}&size=400x400&zoom=12`))
+  //     .pipe(
+  //       tap(res => {
+  //       //   this.longitude = res.longitude;
+  //       //   this.latitude = res.latitude;
+  //         console.log(res)
+  //       }),
+  //       catchError(this.handleError)
+  //     )
+  // }
+  // getCurrentLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(position => {
+
+  //       this.latitude$ = position.coords.latitude;
+  //       this.longitude$ = position.coords.longitude;
+  //     });
+  //     console.log(this.latitude$, this.longitude$)
+  //   }
+  //   else {
+  //     alert("Geolocation is not supported by this browser.");
+  //   }
+  // }
+
+  private handleError(error: HttpErrorResponse): Observable<never> {
+    let errorMessage: string;
+    if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
+      errorMessage = `An error occurred: ${error.error.message}`;
+      // console.error('An error occurred:', error.error);
     } else {
       // The backend returned an unsuccessful response code.
       // The response body may contain clues as to what went wrong.
       console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
+        `Backend returned code ${error.status}, body was: `, error.message);
     }
     // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    return throwError(() => errorMessage);
   }
 }

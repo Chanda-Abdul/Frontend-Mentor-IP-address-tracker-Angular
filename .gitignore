@@ -59,5 +59,6 @@ Thumbs.db
 
 # Environment Variables
 .env
-src/environments
 src/assets/scripts
+src/index.prod.html
+src/environments/

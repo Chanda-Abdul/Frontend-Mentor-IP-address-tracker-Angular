@@ -1,6 +1,11 @@
 @use '/src/variables';
 
-form {
+
+* {
+  cursor: pointer;
+}
+
+.search {
   @include variables.flex-row;
   height: 58px;
   width: 327px;
@@ -29,13 +34,35 @@ form {
   height: 58px;
   width: 58px;
   border-radius: 0 15px 15px 0;
- 
 }
-.btn-submit:hover{
-    background-color: variables.$shoe-wax;
-  }
+
+.btn-submit:hover {
+  background-color: variables.$shoe-wax;
+}
 
 svg {
   fill: variables.$milk;
   stroke: variables.$milk;
+}
+
+/* Responsive Styles */
+@media screen and (min-width: 768px) {
+  .search {
+    width: 555px;
+    margin: 25px;
+  }
+
+  .ip-address {
+    height: 58px;
+    width: 497px;
+    left: 443px;
+    top: 94px;
+  }
+
+  .btn-submit {
+    height: 58px;
+    width: 58px;
+    left: 497px;
+    top: 0px;
+  }
 }

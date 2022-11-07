@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map, Subscription } from 'rxjs';
 import { FetchGeolocationService } from './fetch-geolocation.service';
 
 @Component({
@@ -8,36 +9,55 @@ import { FetchGeolocationService } from './fetch-geolocation.service';
 })
 export class AppComponent implements OnInit {
   title = 'ip-address-tracker-angular';
-  geo: Geolocation | any;
-  headers;
-  currentIpAddress: string = '192.212.174.101';
-  currentLocation: any = 'Brooklyn, NY 10001';
-  currentTimezone: string = 'UTC -05:00';
-  currentIntServiceProvider: string = 'SpaceX StarLink';
+  geolocation$;
 
 
 
-  constructor(private locate: FetchGeolocationService) { }
+  constructor(private fetchGeolocationService: FetchGeolocationService) { }
   ngOnInit() {
-
-    console.log(this.showGeolocation())
-    // .subscribe(data => this.geo = data);
-    // console.log(this.geo)
+    // this.subscription = this.fetchGeolocationService.geolocation$
+    // .subscribe(
+    //   data => {
+    //     // this.geolocation$ = data
+    //   }
+    // )
+    console.log(this.geolocation$)
+    // this.showGeolocation();
+    // this.showGeolocation('210.138.184.59');
   }
 
-  showGeolocation() {
-    this.locate.fetchGeoLocation()
-      .subscribe(data => {
-        const keys = data.headers.keys();
-        this.headers = keys.map(key => `${key}: ${data.headers.get(key)} `)
-        this.geo = { ...data.body! }
-        this.currentIpAddress = this.geo.ip;
-        this.currentLocation = this.geo.location;
-        this.currentTimezone = this.geo.location.timezone;
-        this.currentIntServiceProvider = this.geo.isp;
-        console.log(this.geo)
-      }
+  showGeolocation(ipAddress?) {
+    // this.isFetching = true;
+    // this.fetchLocation.fetchGeoLocation(ipAddress)
+    //   .pipe(
+    //     map(responseData => {
 
-      )
+    //       if (responseData) {
+    //         this.geo = { ...responseData };
+    //         this.currentIpAddress$ = this.geo.ip_address;
+    //         this.currentLocation$ = `${this.geo.city || this.geo.country}, ${this.geo.region_iso_code || this.geo.continent} ${this.geo.postal_code || ''}`;
+    //         this.currentTimezone$ = `${this.geo.timezone.abbreviation} ${this.formatTimezone(this.geo.timezone.gmt_offset)}:00`;
+    //         this.currentIntServiceProvider$ = this.geo.connection.isp_name;
+    //         //
+    //         // console.log(this.geo)
+    //         // this.currentLongitude = this.geo.longitude;
+    //         // this.currentLatitude = this.geo.latitude;
+    //         // console.log(this.geo,  this.currentLatitude)
+    //       }
+    //       return responseData;
+    //     }))
+    //   .subscribe(responseData => {
+    //     // console.log(responseData)
+    //     this.isFetching = false;
+
+
+    //   }
+
+    //   )
   }
+
+
+
+
+
 }

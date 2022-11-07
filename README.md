@@ -23,7 +23,9 @@ This is a solution to the [IP address tracker challenge on Frontend Mentor](http
 
 ## The challenge
 
-Your challenge is to build out this IP Address Tracker app and get it looking as close to the design as possible. <s>To get the IP Address locations, you'll be using the [IP Geolocation API by IPify](https://geo.ipify.org/). To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).</s>
+Your challenge is to build out this IP Address Tracker app and get it looking as close to the design as possible. 
+* <s>To get the IP Address locations, you'll be using the [IP Geolocation API by IPify](https://geo.ipify.org/). 
+* To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).</s>
 
 
 
@@ -37,16 +39,16 @@ Users should be able to:
 - [x] See their own IP address on the map on the initial page load
 - [ ] Search for any IP addresses or <s>domains</s> and see the key information and location
 <hr>
-
-  - [ ] <i>TO DO => fetch new data with ip address input
-  - [ ] TO DO => create observable/Subject from fetch service for latitude
-  - [ ] TO DO => create observable/Subject from fetch service for longitude
-  - [ ] TO DO => handle errors
-  - [ ] TO DO => remove map controls and fix pin/marker
-  - [ ] TO DO => Add alert styling library for error alerts 
-  - [ ] TO DO => Add Animations?
-  - [ ] To DO => polish and test your code
-  - [ ] To DO => implement domain functionality, may need to use a different API?</i>
+#### In Progress...
+  - [ ] <i>fetch new data with ip address input
+  - [ ] create observable/Subject from fetch service for latitude
+  - [ ] create observable/Subject from fetch service for longitude
+  - [ ] handle errors
+  - [ ] remove map controls and fix pin/marker
+  - [ ] Add alert styling library for error alerts 
+  - [ ] Add Animations?
+  - [ ] polish and test your code
+  - [ ] implement domain functionality, may need to use a different API?</i>
 
 
 <!--   -->
@@ -62,15 +64,18 @@ Users should be able to:
 
 ## Screenshot
 
-
+<hr>
 #### Mobile `@375px`
 <img src="./src/assets/screens/mobile.png"/>
+<hr>
 
 #### No one asked but, Tablet @768px
 <img src="./src/assets/screens/tablet.png"/>
+<hr>
 
 #### Desktop @1140px
 <img src="./src/assets/screens/desktop.png"/>
+<hr>
 
 #### Input
 ##### with valid IP address input
@@ -83,28 +88,33 @@ Users should be able to:
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
-- design
-- Geolocation API 
-- Google Maps API
+#### design
+#### API Selection
+##### Geolocation API
+To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> because the
+[IP Geolocation API by IPify](https://geo.ipify.org/docs) had a very small lifetime limit of 1,000 🆓 requests; compared to Abstract's 22,000 🆓 requests per month *and* optional ip address query parameter.
+##### Google Maps API
+For the mapping API, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>, for the mapping API. I've used [LeafletJS](https://leafletjs.com/) before and I wanted to try something new, I thought that a google API would pair well with Angular.
+#### Reactive Development with RxJs
 
 ### Built with
 #### APIs
 
-- To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> because the
-[IP Geolocation API by IPify](https://geo.ipify.org/docs) had a very small lifetime limit of 1,000 🆓 requests; compared to Abstract's 22,000 🆓 requests per month *and* optional ip address query parameter.
--  For the mapping API, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>, for the mapping API. I've used [LeafletJS](https://leafletjs.com/) before and I wanted to try something new, I thought that a google API would pair well with Angular.
+- <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> to get the IP Address locations.
+-  For the mapping API, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>.
 - <b>[Insomnia](https://insomnia.rest/)</b> to test API endpoints and query parameters.
 
 #### Frameworks and Librarys
 - <b>[Angular](https://angular.io/)</b> (<b>JavaScript</b> framework)
-  - [TypeScript](https://www.typescriptlang.org/)
-  - [JavaScript](https://www.javascript.com/)
-  - <b>[RxJs]()</b> library for Observables
+  - <b>[TypeScript](https://www.typescriptlang.org/)</b>
+  - <b>[JavaScript](https://www.javascript.com/)</b>
+  - <b>[RxJs](https://rxjs.dev/)</b> a library for reactive programming using Observables.
 - <b>[Figma](https://www.figma.com/)</b> collaborative web application for interface design.
 - <b>[Sass](https://sass-lang.com/)/CSS</b> custom properties
   - Mobile-first workflow
+  - Responsive Styling
   - Flexbox
-- Semantic HTML5 markup
+- Semantic <b>HTML5</b> markup
 
 ## What I learned
 
@@ -137,9 +147,10 @@ const proudOfThisFunc = () => {
 - [Get data from a server](https://angular.io/tutorial/toh-pt6) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 - [Integrating Google Maps API w/ Angular 7+](https://medium.com/@jkeung/integrating-google-maps-api-w-angular-7-e7672396ce2d) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 - [How to Display Spinner...](https://www.geeksforgeeks.org/how-to-display-spinner-on-the-screen-till-the-data-from-the-api-loads-using-angular-8/) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-- [ ]( ) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [ ]( ) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-- [ ]( ) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+
+- [fdhjklkdaf](#) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [fdhjklkdaf](#) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [fdhjklkdaf](#) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
 
 ## Author
 

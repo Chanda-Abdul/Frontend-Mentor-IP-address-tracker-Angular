@@ -28,9 +28,7 @@ Your challenge is to build out this IP Address Tracker app and get it looking as
 * To generate the map, we recommend using [LeafletJS](https://leafletjs.com/).</s>
 
 
-
----
-Users should be able to:
+### Users should be able to:
 
 - [x] View the optimal layout for each page depending on their device's screen size
   - [x] Mobile: 375px
@@ -38,9 +36,9 @@ Users should be able to:
 - [x] See hover states for all interactive elements on the page
 - [x] See their own IP address on the map on the initial page load
 - [ ] Search for any IP addresses or <s>domains</s> and see the key information and location
-<hr>
 
 #### In Progress...
+
   - [ ] <i>fetch new data with ip address input
   - [ ] create observable/Subject from fetch service for latitude
   - [ ] create observable/Subject from fetch service for longitude
@@ -49,7 +47,8 @@ Users should be able to:
   - [ ] Add alert styling library for error alerts 
   - [ ] Add Animations?
   - [ ] polish and test your code
-  - [ ] implement domain functionality, may need to use a different API?</i>
+  - [ ] implement domain functionality, may need to use a different API?
+  </i>
 
 
 <!--   -->
@@ -65,22 +64,22 @@ Users should be able to:
 
 ## Screenshot
 
-#### Mobile `@375px`
+### Mobile `@375px`
 <img src="./src/assets/screens/mobile.png"/>
 
 
-#### No one asked but, Tablet @768px
+### No one asked but, Tablet @768px
 <img src="./src/assets/screens/tablet.png"/>
 
 
-#### Desktop @1140px
+### Desktop @1140px
 <img src="./src/assets/screens/desktop.png"/>
 
 
-#### Input
-##### with valid IP address input
-##### without valid IP address input
-##### with valid domain input
+### Input
+#### with valid IP address input
+#### without valid IP address input
+#### with valid domain input
 
 ## Links
 
@@ -88,7 +87,7 @@ Users should be able to:
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
-### design
+### Design
 ### API Selection
 #### Geolocation API
 To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> because the

@@ -36,15 +36,26 @@ Users should be able to:
 - [x] See hover states for all interactive elements on the page
 - [x] See their own IP address on the map on the initial page load
 - [ ] Search for any IP addresses or <s>domains</s> and see the key information and location
+<hr>
+
+  - [ ] <i>TO DO => fetch new data with ip address input
+  - [ ] TO DO => create observable/Subject from fetch service for latitude
+  - [ ] TO DO => create observable/Subject from fetch service for longitude
+  - [ ] TO DO => handle errors
+  - [ ] TO DO => remove map controls and fix pin/marker
+  - [ ] TO DO => Add alert styling library for error alerts 
+  - [ ] TO DO => Add Animations?
+  - [ ] To DO => polish and test your code
+  - [ ] To DO => implement domain functionality, may need to use a different API?</i>
 
 
-<!-- TO DO => fetch new data with ip address  -->
-<!-- TO DO => create observable/Subject from fetch service for latitude -->
-<!-- TO DO => create observable/Subject from fetch service for longitude -->
-<!-- TO DO => handle errors-->
-<!--  TO DO => remove map controsl and fix pin -->
- <!-- TO DO => Add alert styling library for error alerts -->
-<!-- To DO => polish and test your code -->
+<!--   -->
+<!--  -->
+<!--  -->
+<!---->
+<!--   -->
+ <!-- -->
+<!--  -->
 
 
 
@@ -88,6 +99,7 @@ Users should be able to:
 - <b>[Angular](https://angular.io/)</b> (<b>JavaScript</b> framework)
   - [TypeScript](https://www.typescriptlang.org/)
   - [JavaScript](https://www.javascript.com/)
+  - <b>[RxJs]()</b> library for Observables
 - <b>[Figma](https://www.figma.com/)</b> collaborative web application for interface design.
 - <b>[Sass](https://sass-lang.com/)/CSS</b> custom properties
   - Mobile-first workflow
@@ -118,6 +130,7 @@ const proudOfThisFunc = () => {
 
 ## Continued development
 - [ ] search by domain input 
+- [ ] add animations
 
 ## Useful resources
 

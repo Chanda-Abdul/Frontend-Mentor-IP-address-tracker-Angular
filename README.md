@@ -39,6 +39,7 @@ Users should be able to:
 - [x] See their own IP address on the map on the initial page load
 - [ ] Search for any IP addresses or <s>domains</s> and see the key information and location
 <hr>
+
 #### In Progress...
   - [ ] <i>fetch new data with ip address input
   - [ ] create observable/Subject from fetch service for latitude
@@ -64,47 +65,46 @@ Users should be able to:
 
 ## Screenshot
 
-<hr>
 #### Mobile `@375px`
 <img src="./src/assets/screens/mobile.png"/>
-<hr>
+
 
 #### No one asked but, Tablet @768px
 <img src="./src/assets/screens/tablet.png"/>
-<hr>
+
 
 #### Desktop @1140px
 <img src="./src/assets/screens/desktop.png"/>
-<hr>
+
 
 #### Input
 ##### with valid IP address input
 ##### without valid IP address input
 ##### with valid domain input
 
-### Links
+## Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
-#### design
-#### API Selection
-##### Geolocation API
+### design
+### API Selection
+#### Geolocation API
 To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> because the
 [IP Geolocation API by IPify](https://geo.ipify.org/docs) had a very small lifetime limit of 1,000 🆓 requests; compared to Abstract's 22,000 🆓 requests per month *and* optional ip address query parameter.
-##### Google Maps API
+#### Google Maps API
 For the mapping API, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>, for the mapping API. I've used [LeafletJS](https://leafletjs.com/) before and I wanted to try something new, I thought that a google API would pair well with Angular.
-#### Reactive Development with RxJs
+### Reactive Development with RxJs
 
-### Built with
-#### APIs
+## Built with
+### APIs
 
 - <b>[IP geolocation API by Abstract](https://app.abstractapi.com/api/ip-geolocation/documentation)</b> to get the IP Address locations.
 -  For the mapping API, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>.
 - <b>[Insomnia](https://insomnia.rest/)</b> to test API endpoints and query parameters.
 
-#### Frameworks and Librarys
+### Frameworks and Librarys
 - <b>[Angular](https://angular.io/)</b> (<b>JavaScript</b> framework)
   - <b>[TypeScript](https://www.typescriptlang.org/)</b>
   - <b>[JavaScript](https://www.javascript.com/)</b>

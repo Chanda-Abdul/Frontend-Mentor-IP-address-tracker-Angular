@@ -48,11 +48,11 @@ Your challenge is to build out this IP Address Tracker app and get it looking as
 
 
 ### No one asked but, Tablet `@768px`
-<img src="./src/assets/screens/tablet2.png" width="768" />
+<img src="./src/assets/screens/tablet2.png" width="384" />
 
 
 ### Desktop `@1140px`
-<img src="./src/assets/screens/desktop.png"width="1140" />
+<img src="./src/assets/screens/desktop.png" width="570"/>
 
 #
 ### with Input Validation
@@ -69,11 +69,12 @@ validateInput(ipOrDomain){
 }
 ```
 if the input <i>IS</i> valid the user will see the <i>"success"</i> alert below
+
 <img src="./src/assets/screens/success.png"  width="375" />
 
 #### invalid IP address input
 if the input <i>IS NOT</i> valid the user will see the <i>"error"</i> alert below
-<img src="./src/assets/screens/error.png"  width="1140" />
+<img src="./src/assets/screens/error.png"  width="540" />
 
 #### valid domain input
 ❗️the <b>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</b> does <i>not</i> have a domain query parameter, so I skipped this for now. 
@@ -95,7 +96,7 @@ I also used <b>RegEx</b> to check if the input is a valid domain,
 ```
 
 if so the user will see the <i>"warning"</i> alert below
-<img src="./src/assets/screens/warning.png"  width="768" />
+<img src="./src/assets/screens/warning.png"  width="384" />
 
 ## Links
 
@@ -114,16 +115,20 @@ if so the user will see the <i>"warning"</i> alert below
 
 #
 ### API Selection
-#### Geolocation API 
+<b>Geolocation API</b> 
+
 To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</b> because the
 [IP Geolocation API by IPify](https://geo.ipify.org/docs) has a very small lifetime limit of 1,000 🆓 requests; compared to Abstract's 22,000 🆓 requests per month *and* optional ip address query parameter.
 ##### <b>`GET`</b> request:
 `https://ipgeolocation.abstractapi.com/v1/`
 ##### Input parameters: 
 `api_key`(required): 🤫
+
 `fields`(optional): `=ip_address,city,region_iso_code,postal_code,longitude,latitude,timezone,connection`
+
 `ip_address`(optional): ex. `210.138.184.59`
-#### Google Maps API
+<b>Google Maps API</b>
+
 For the <i>mapping API</i>, I went with <b>[Maps JavaScript API](https://developers.google.com/maps/documentation/javascript)</b>. I've used <b>[LeafletJS](https://leafletjs.com/)</b> before and I wanted to try something new, I also thought that a google <i>API</i> would pair well with <i>Angular</i>.
 ##### <b>`GET`</b> request:
 `http://maps.googleapis.com/maps/api/js`
@@ -157,7 +162,7 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
 - Semantic <b>HTML5</b> markup
 
 ## What I learned
-- <b>Observables and RxJs</b>
+<b>Observables and RxJs</b>
 
   [BehaviorSubject](https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject) - I knew that it would be best to use Observables for the <i>API</i> data. I decided to go with a `BehaviorSubject` because multiple components would need to subscribe to the <i>API</i> data and notified when there were changes.
 
@@ -208,11 +213,14 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
       ...
       <li>
         <h2>Timezone</h2>
-        <p>{{geolocation.timezone.abbreviation}} {{this.formatTimezone(geolocation.timezone.gmt_offset)}}:00</p>
+        <p>
+          {{geolocation.timezone.abbreviation}} 
+          {{this.formatTimezone(geolocation.timezone.gmt_offset)}}:00
+          </p>
       </li>
       ...
     ```
-- <b>Selecting an API</b>
+<b>Selecting an API</b>
   The most challenging part, for the <i>APIs</i>, was just selecting which two <i>APIs</i> would be best for this project.  
   
   For the <i>Geolocation API</i>, I started with the recommended, <i>[IP Geolocation APIby IPify](https://geo.ipify.org/)</i> , but I quickly learned that the lifetime request limit is pretty low.  So I looked into a few other <i>geolocation/ip address APIs</i> and there weren't very many free <i>APIs</i> that would also give me the data I need, and a decent request amount, while being easily incorparated into an <i>Angular</i> project. I ended up going with the <i>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</i>

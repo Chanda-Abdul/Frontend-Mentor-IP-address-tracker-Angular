@@ -74,6 +74,7 @@ if the input <i>IS</i> valid the user will see the <i>"success"</i> alert below
 
 #### invalid IP address input
 if the input <i>IS NOT</i> valid the user will see the <i>"error"</i> alert below
+
 <img src="./src/assets/screens/error.png"  width="540" />
 
 #### valid domain input
@@ -96,6 +97,7 @@ I also used <b>RegEx</b> to check if the input is a valid domain,
 ```
 
 if so the user will see the <i>"warning"</i> alert below
+
 <img src="./src/assets/screens/warning.png"  width="384" />
 
 ## Links

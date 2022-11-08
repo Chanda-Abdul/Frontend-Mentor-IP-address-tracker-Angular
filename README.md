@@ -48,11 +48,11 @@ Your challenge is to build out this IP Address Tracker app and get it looking as
 
 
 ### No one asked but, Tablet `@768px`
-<img src="./src/assets/screens/tablet2.png" width="384" />
+<img src="./src/assets/screens/tablet2.png"/>
 
 
 ### Desktop `@1140px`
-<img src="./src/assets/screens/desktop.png" width="570"/>
+<img src="./src/assets/screens/desktop.png"/>
 
 #
 ### with Input Validation
@@ -74,8 +74,7 @@ if the input <i>IS</i> valid the user will see the <i>"success"</i> alert below
 
 #### invalid IP address input
 if the input <i>IS NOT</i> valid the user will see the <i>"error"</i> alert below
-
-<img src="./src/assets/screens/error.png"  width="540" />
+<img src="./src/assets/screens/error.png"  />
 
 #### valid domain input
 ❗️the <b>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</b> does <i>not</i> have a domain query parameter, so I skipped this for now. 
@@ -91,14 +90,16 @@ I also used <b>RegEx</b> to check if the input is a valid domain,
 
   validateInput(ipOrDomain){
     ...
-    (this.checkDomainRegex.test(ipOrDomain));
+    (this.checkDomainRegex.test(ipOrDo
+    
+    main));
     ...
   }
 ```
 
 if so the user will see the <i>"warning"</i> alert below
 
-<img src="./src/assets/screens/warning.png"  width="384" />
+<img src="./src/assets/screens/warning.png"  />
 
 ## Links
 
@@ -198,7 +199,8 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
   }
   ```
   ### 📂 `display.component.ts`
-    ```js
+
+  ```js
     geolocation$ = this.fetchGeolocationService.geolocation$;
     geolocation: Geolocation;
     ...
@@ -207,10 +209,11 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
     ...
 
     this.geolocation$.subscribe(res => this.geolocation = res); 
-    ```
+  ```
 
-     ### 📂 `display.component.html`
-    ```html
+  ### 📂 `display.component.html`
+    
+  ```html
     <div *ngIf="geolocation$ | async as geolocation">
       ...
       <li>
@@ -221,8 +224,9 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
           </p>
       </li>
       ...
-    ```
+```
 <b>Selecting an API</b>
+
   The most challenging part, for the <i>APIs</i>, was just selecting which two <i>APIs</i> would be best for this project.  
   
   For the <i>Geolocation API</i>, I started with the recommended, <i>[IP Geolocation APIby IPify](https://geo.ipify.org/)</i> , but I quickly learned that the lifetime request limit is pretty low.  So I looked into a few other <i>geolocation/ip address APIs</i> and there weren't very many free <i>APIs</i> that would also give me the data I need, and a decent request amount, while being easily incorparated into an <i>Angular</i> project. I ended up going with the <i>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</i>

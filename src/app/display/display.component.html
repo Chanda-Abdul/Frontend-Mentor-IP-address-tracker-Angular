@@ -12,35 +12,29 @@
 
   <div *ngIf="geolocation$ | async as geolocation">
     <ul *ngIf="!loading">
-      <li>
+      <div class="horizontal"></div>
+      <li class="horizontal">
         <h2>IP Address</h2>
         <p>{{geolocation.ip_address}}</p>
       </li>
       <div class="separator"></div>
-      <li>
+      <li class="horizontal vertical">
         <h2>Location</h2>
         <p>{{geolocation.city || geolocation.country}}, {{geolocation.region_iso_code || geolocation.continent}}
           {{geolocation.postal_code || ''}}</p>
       </li>
-      <hr>
-      <hr>
-      <div class="separator-desktop"></div>
-
+      <div class="separator"></div>
       <li>
         <h2>Timezone</h2>
         <p>{{geolocation.timezone.abbreviation}} {{this.formatTimezone(geolocation.timezone.gmt_offset)}}:00</p>
       </li>
       <div class="separator"></div>
-      <li>
+      <li class="vertical">
         <h2> ISP</h2>
         <p>{{geolocation.connection.isp_name}}</p>
       </li>
     </ul>
   </div>
-
 </div>
-
-<img src="assets/svg/icon-location.svg"
-     class="pin">
 
 <app-map></app-map>

@@ -1,7 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles */
 @use './variables.scss';
-
-
 
 * {
   box-sizing: border-box;
@@ -10,12 +8,11 @@
 }
 
 html {
-  // @include variables.flex-column;
   font-family: variables.$global-font;
   background-color: variables.$dazzling-blue;
   font-size: 18px;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
 .container {
@@ -35,7 +32,6 @@ h2 {
   color: variables.$shark-fin;
   font-size: 10px;
   font-weight: 700;
-  line-height: 12px;
   letter-spacing: 1.4px;
   text-align: center;
 }
@@ -57,7 +53,6 @@ p {
     'GRAD' 0,
     'opsz' 20
 }
-
 
 .attribution {
   @include variables.flex-row;

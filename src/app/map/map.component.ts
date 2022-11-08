@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { } from 'googlemaps';
-import { concatAll, map, mergeAll, mergeMap, Observable, pluck, tap } from 'rxjs';
 import { FetchGeolocationService } from '../fetch-geolocation.service';
 
 @Component({
@@ -11,28 +10,40 @@ import { FetchGeolocationService } from '../fetch-geolocation.service';
 export class MapComponent implements OnInit, AfterViewInit {
   @ViewChild('map', { static: true }) mapElement: any;
   map: google.maps.Map;
-  geolocation$ = this.fetchGeolocationService.geolocation$;
-  // TO DO => remove map controls
-  // TO DO => create observable from fetch service for latitude
-  // TO DO => create observable from fetch service for longitude
+
+  @Input() position;
+  geolocation$ = this.fetchGeolocationService.geolocation$
+  longitude$: number| undefined;
+  latitude$: number| undefined;
 
   constructor(private fetchGeolocationService: FetchGeolocationService) { }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
 
   }
+
   ngAfterViewInit(): void {
-    this.setMap(37.7201, -122.4414)
+    this.geolocation$.subscribe(res => {
+      this.longitude$ = res.longitude;
+      this.latitude$ = res.latitude;
+      this.setMap(this.latitude$, this.longitude$);
+    })
   }
 
   setMap(latitude, longitude) {
     const mapProperties = {
       center: new google.maps.LatLng(latitude, longitude),
       zoom: 14,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      disableDefaultUI: true,
     };
-    this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
-    return this.map;
+    const map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+    const image = "assets/svg/icon-location.svg";
+    new google.maps.Marker({
+      position: map.getCenter(),
+      icon: image,
+      map: map,
+    });
+    return map;
   }
 }

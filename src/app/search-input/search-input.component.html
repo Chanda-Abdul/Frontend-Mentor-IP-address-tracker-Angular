@@ -1,15 +1,19 @@
 <div class="container">
-  <div class="search">
+  <form class="search"
+        #search="ngForm">
     <input id="ipaddress"
            [(ngModel)]="ipAddressOrDomain"
            placeholder="Search for any IP address or domain"
            name="ipaddress"
-           class="ip-address">
+           class="ip-address"
+           required />
 
     <button type="submit"
             class="btn-submit"
             (click)="updateLocation()">
       <img src="assets/svg/icon-arrow.svg" />
     </button>
-  </div>
+
+  </form>
+
 </div>

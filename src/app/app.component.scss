@@ -1,6 +1,6 @@
 @use '/src/variables';
 
-.container{
+.container {
   @include variables.flex-column;
   justify-items: center;
 }
@@ -10,7 +10,7 @@
   height: 300px;
   background: variables.$gradient;
   background-image: url('/assets/images/pattern-bg.png');
-  background-size:cover;
+  background-size: cover;
   background-position: top center;
   @include variables.flex-column;
   justify-content: flex-start;
@@ -19,8 +19,7 @@
 
 
 @media screen and (min-width: 1440px) {
-
-.search {
-  height: 280px;
-}
+  .search {
+    height: 280px;
+  }
 }

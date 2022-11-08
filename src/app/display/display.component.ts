@@ -1,8 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 import { FetchGeolocationService } from '../fetch-geolocation.service';
-import { MapComponent } from '../map/map.component';
-
 
 @Component({
   selector: 'app-display',
@@ -11,15 +8,18 @@ import { MapComponent } from '../map/map.component';
 
 })
 export class DisplayComponent implements OnInit {
-
   loading = true;
-
   geolocation$ = this.fetchGeolocationService.geolocation$
+  geolocation;
+
 
   constructor(private fetchGeolocationService: FetchGeolocationService) { }
 
   ngOnInit(): void {
-    this.loading = false
+    this.fetchGeolocationService.fetchGeolocation();
+    this.loading = false;
+    this.geolocation$.subscribe(res =>
+      this.geolocation = res);
   }
 
 

@@ -1,9 +1,8 @@
 @use '/src/variables';
 
 :host {
-  width: 100%;
-  min-height: 328px;
   @include variables.flex-column;
+  transition: 0.5s ease-in-out;
 }
 
 #loading {
@@ -26,7 +25,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -34,10 +32,11 @@
 
 .container {
   position: absolute;
-  min-height: 294px;
   width: 327px;
   top: 167px;
   border-radius: 15px;
+  border: 1px solid variables.$soft-blue;
+  border-bottom: none;
   background-color: variables.$milk;
   padding: 25px 5px;
   box-shadow: 0px 50px 50px -25px variables.$shoe-wax;
@@ -53,13 +52,16 @@ ul {
 
 
 h2 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-hr,
-.separator,
-.separator-desktop {
+p {
+  margin-top: 5px;
+  margin-bottom: auto;
+}
+
+.separator {
   display: none;
 }
 
@@ -72,26 +74,11 @@ hr,
 
 /* Responsive Styles */
 @media screen and (min-width: 768px) {
-
-  .separator {
-    display: inherit;
-    border: 1px solid variables.$shark-fin;
-    background-color: variables.$shark-fin;
-    height: 60px;
-  }
-
-  hr {
-    display: inherit;
-    width: 100px;
-    margin: 0 75px;
-    background-color: variables.$shark-fin;
-  }
-
   .container {
     @include variables.flex-row;
     width: 555px;
-    // padding:.5em auto;
     height: fit-content;
+    padding: 0;
   }
 
   ul {
@@ -103,36 +90,45 @@ hr,
   li {
     @include variables.flex-column;
     width: 40%;
-    margin: 1em;
-    padding: 1em .5em;
+    height: 100px;
+    margin: 0;
+    padding: 1em .75em;
+  }
+
+  .horizontal {
+    border-bottom: 2px solid variables.$blueberry;
+  }
+
+  .vertical {
+    border-left: 2px solid variables.$blueberry;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  hr {
-    display: none;
-  }
-
-  .separator-desktop,
-  .separator {
-    visibility: visible;
-    border: .5px solid variables.$shark-fin;
-    background-color: variables.$shark-fin;
-    height: 75px;
-  }
-
-  .container {
+ .container {
     width: 1110px;
-    // padding:.5em auto;
     height: 161px;
     top: 200px;
   }
 
+  .separator {
+    display: block;
+    border-left: 2px solid variables.$shark-fin;
+    height: 75px;
+  }
+
+  .horizontal {
+    border: none;
+  }
+
+  .vertical {
+    border: none;
+  }
   ul {
     @include variables.flex-row;
+    justify-content: space-evenly;
     flex-wrap: nowrap;
     height: 100%;
-    width: 100%;
-    justify-content: space-evenly;
+    width: 1110px;
   }
 }

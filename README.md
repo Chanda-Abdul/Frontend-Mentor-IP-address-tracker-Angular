@@ -44,19 +44,19 @@ Your challenge is to build out this IP Address Tracker app and get it looking as
 ## Screenshots
 
 ### Mobile `@375px`
-<img src="./src/assets/screens/mobile.png"/>
+<img src="./src/assets/screens/mobile.png" width="375" />
 
 
 ### No one asked but, Tablet `@768px`
-<img src="./src/assets/screens/tablet2.png"/>
+<img src="./src/assets/screens/tablet2.png" width="768" />
 
 
 ### Desktop `@1140px`
-<img src="./src/assets/screens/desktop.png"/>
+<img src="./src/assets/screens/desktop.png"width="1140" />
 
-
-### Input
-#### with valid IP address input
+#
+### with Input Validation
+#### valid IP address input
 I used <b>RegEx</b> to validate the input, 
 
 ```js
@@ -69,14 +69,15 @@ validateInput(ipOrDomain){
 }
 ```
 if the input <i>IS</i> valid the user will see the <i>"success"</i> alert below
-<img src="./src/assets/screens/success.png"/>
+<img src="./src/assets/screens/success.png"  width="375" />
 
-#### without valid IP address input
+#### invalid IP address input
 if the input <i>IS NOT</i> valid the user will see the <i>"error"</i> alert below
-<img src="./src/assets/screens/error.png"/>
+<img src="./src/assets/screens/error.png"  width="1140" />
 
-#### with valid domain input
-❗️the <b>[IP geolocation API by Abstract](https://app.abstract<i>API</i>.com/<i>API</i>/ip-geolocation/documentation)</b> does not have a domain query parameter, so I skipped this for now. 
+#### valid domain input
+❗️the <b>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</b> does <i>not</i> have a domain query parameter, so I skipped this for now. 
+
 I also used <b>RegEx</b> to check if the input is a valid domain, 
 ```js
   checkDomainRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9]
@@ -94,7 +95,7 @@ I also used <b>RegEx</b> to check if the input is a valid domain,
 ```
 
 if so the user will see the <i>"warning"</i> alert below
-<img src="./src/assets/screens/warning.png"/>
+<img src="./src/assets/screens/warning.png"  width="768" />
 
 ## Links
 
@@ -111,6 +112,7 @@ if so the user will see the <i>"warning"</i> alert below
     - The `<app-display>` component, to display the current <i>IP Address</i>, <i>location</i>, <i>Timezone</i>, and <i>Internet Service Provider</i>. This contains the
       - `<app-map>`component which handles the <i>API/call</i> for the mapping functionality, which could be moved to a <i>Service</i> later.
 
+#
 ### API Selection
 #### Geolocation API 
 To get the IP Address locations,  I decided to go with the <b>[IP geolocation API by Abstract](https://app.abstractAPI.com/API/ip-geolocation/documentation)</b> because the
@@ -130,7 +132,7 @@ For the <i>mapping API</i>, I went with <b>[Maps JavaScript API](https://develop
 
 - I also used a custom `Marker` and removed the `disableDefaultUI` controls.
 
-
+#
 ### Reactive Development with RxJs
 This was a good project to practice <b>Reactive development</b> and <b>RxJs/Observables</b>.  The data returned from the <i>API</i> calls are <i>Observables</i>. 
 
@@ -156,6 +158,7 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
 
 ## What I learned
 - <b>Observables and RxJs</b>
+
   [BehaviorSubject](https://www.learnrxjs.io/learn-rxjs/subjects/behaviorsubject) - I knew that it would be best to use Observables for the <i>API</i> data. I decided to go with a `BehaviorSubject` because multiple components would need to subscribe to the <i>API</i> data and notified when there were changes.
 
   this is what it looks like... 
@@ -176,7 +179,8 @@ This was a good project to practice <b>Reactive development</b> and <b>RxJs/Obse
       + (ipAddress ? `&ip_address=${ipAddress}` : ""),
       {
         params: {
-          fields: 'ip_address,city,country,continent,region_iso_code,postal_code,longitude,latitude,timezone,connection'
+          fields: 'ip_address,city,country,continent,region_iso_code,postal_code,
+          longitude,latitude,timezone,connection'
         }
       })
       .subscribe(
